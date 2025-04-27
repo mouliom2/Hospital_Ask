@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hôpital Askamoul - Présentation</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text: #1f2937;
+            --background: #ffffff;
+            --accent: #dbeafe;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-content {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: var(--accent);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: left;
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            background: var(--accent);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: var(--secondary);
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            font-size: 0.875rem;
+            color: var(--text);
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+                showSlide(currentIndex);
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                showSlide(currentIndex);
+            });
+
+            // Afficher la première slide dès le chargement
+            showSlide(currentIndex);
+        });
+    </script>
+</head>
+<body>
+    <!-- Slide 1: Introduction -->
+    <div class="slide active" id="slide1">
+        <div class="slide-content">
+            <h1>Hôpital Askamoul</h1>
+            <h2>Plateforme de Gestion Intelligente</h2>
+            <p>
+                Une application web moderne intégrant l'intelligence artificielle pour optimiser les opérations hospitalières et améliorer la qualité des soins.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Vue d'ensemble -->
+    <div class="slide" id="slide2">
+        <div class="slide-content">
+            <h2>Fonctionnalités principales</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Gestion des patients</h3>
+                    <ul>
+                        <li>Dossiers médicaux électroniques</li>
+                        <li>Suivi des consultations</li>
+                        <li>Historique médical</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Gestion du personnel</h3>
+                    <ul>
+                        <li>Répertoire du personnel</li>
+                        <li>Gestion des affectations</li>
+                        <li>Profils détaillés</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Gestion des rendez-vous</h3>
+                    <ul>
+                        <li>Calendrier interactif</li>
+                        <li>Planification simplifiée</li>
+                        <li>Notifications et rappels</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Analyse IA -->
+    <div class="slide" id="slide3">
+        <div class="slide-content">
+            <h2>Analyse IA</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Prédictions</h3>
+                    <ul>
+                        <li>Prédictions de risques</li>
+                        <li>Optimisation des ressources</li>
+                        <li>Aide au diagnostic</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Planification intelligente</h3>
+                    <ul>
+                        <li>Optimisation des horaires</li>
+                        <li>Gestion des urgences</li>
+                        <li>Allocation des ressources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Assistant IA -->
+    <div class="slide" id="slide4">
+        <div class="slide-content">
+            <h2>Assistant IA</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Fonctionnalités</h3>
+                    <ul>
+                        <li>Interface conversationnelle</li>
+                        <li>Réponses contextuelles</li>
+                        <li>Aide à la décision</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Support multilingue</h3>
+                    <ul>
+                        <li>Interaction en plusieurs langues</li>
+                        <li>Accessibilité internationale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Architecture technique -->
+    <div class="slide" id="slide5">
+    <div class="slide-content">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Architecture technique</h2>
+
+        <div class="feature-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+            <!-- Frontend Section -->
+            <div class="feature-item" style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Frontend</h3>
+                <ul>
+                    <li><strong>Framework :</strong> React 18</li>
+                    <li><strong>Langage :</strong> TypeScript</li>
+                    <li><strong>Style :</strong> Tailwind CSS</li>
+                    <li><strong>Gestion d'état :</strong> Context API et React Hooks</li>
+                    <li><strong>Composants :</strong> Lucide React (icônes)</li>
+                </ul>
+                <p style="text-align: center;">
+                    Le frontend gère l'interface utilisateur, les interactions, et la communication avec le backend via des appels API.
+                </p>
+            </div>
+
+            <!-- Backend Section -->
+            <div class="feature-item" style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Backend</h3>
+                <ul>
+                    <li><strong>Environnement :</strong> Node.js</li>
+                    <li><strong>Framework :</strong> Express.js (ou similaire)</li>
+                    <li><strong>Base de données :</strong> MongoDB ou PostgreSQL</li>
+                    <li><strong>API :</strong> REST ou GraphQL pour la communication avec le frontend</li>
+                    <li><strong>Sécurité :</strong> Authentification JWT, chiffrement des données</li>
+                </ul>
+                <p style="text-align: center;">
+                    Le backend gère la logique métier, les données des utilisateurs, et les appels aux modèles d'analyse IA.
+                </p>
+            </div>
+
+            <!-- Modèles d'analyse IA Section -->
+            <div class="feature-item" style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Modèles d'analyse IA</h3>
+                <ul>
+                    <li><strong>Frameworks :</strong> TensorFlow.js ou Python (TensorFlow, scikit-learn)</li>
+                    <li><strong>Types de modèles :</strong>
+                        <ul>
+                            <li><strong>Prédictions :</strong> Modèles supervisés (régression, classification)</li>
+                            <li><strong>Clustering :</strong> Modèles non supervisés (K-Means, DBSCAN)</li>
+                            <li><strong>Analyse avancée :</strong> Réseaux de neurones pour l'aide au diagnostic</li>
+                        </ul>
+                    </li>
+                    <li><strong>Communication :</strong> Les modèles sont appelés via des microservices ou des API dédiées</li>
+                </ul>
+                <p style="text-align: center;">
+                    Les modèles d'IA analysent les données collectées pour fournir des prédictions, des recommandations, et des insights.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Slide 6: Sécurité -->
+    <div class="slide" id="slide6">
+        <div class="slide-content">
+            <h2>Sécurité et conformité</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Protection des données</h3>
+                    <ul>
+                        <li>Chiffrement des données</li>
+                        <li>Authentification sécurisée</li>
+                        <li>Journalisation</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Conformité</h3>
+                    <ul>
+                        <li>Normes de santé</li>
+                        <li>Protection de la vie privée</li>
+                        <li>Traçabilité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="navigation">
+        <button id="prevBtn">Précédent</button>
+        <button id="nextBtn">Suivant</button>
+    </div>
+</body>
+</html>
+
